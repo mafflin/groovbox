@@ -2,9 +2,17 @@
   "name": "groovbox",
   "displayName": "Groovbox",
   "description": "Gruvbox for VS Code. A modern take on Tom Philbin's Gruvbox Themes, with the full UI and semantic highlighting.",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "publisher": "mafflin",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafflin/groovbox.git"
+  },
+  "homepage": "https://github.com/mafflin/groovbox#readme",
+  "bugs": {
+    "url": "https://github.com/mafflin/groovbox/issues"
+  },
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.70.0"
@@ -62,8 +70,8 @@
   "scripts": {
     "build": "node src/build.js",
     "vscode:prepublish": "node src/build.js",
-    "package": "npx --yes @vscode/vsce package --allow-missing-repository",
-    "publish:vscode": "npx --yes @vscode/vsce publish --allow-missing-repository",
+    "package": "npx --yes @vscode/vsce package",
+    "publish:vscode": "npx --yes @vscode/vsce publish",
     "publish:openvsx": "npx --yes ovsx publish"
   }
 }

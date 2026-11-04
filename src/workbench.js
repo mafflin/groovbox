@@ -244,7 +244,7 @@ function workbenchColors(p) {
     'statusBar.focusBorder': L.accentText,
     'statusBar.noFolderBackground': gb.faded_purple, // #68217a
     'statusBar.noFolderForeground': L.accentText,
-    'statusBar.debuggingBackground': n.orange, // #cc6633
+    'statusBar.debuggingBackground': gb.faded_orange, // #cc6633 (neutral_orange is 3.4:1 under white text)
     'statusBar.debuggingForeground': L.accentText,
     'statusBar.debuggingBorder': transparent,
     'statusBarItem.hoverBackground': alpha(gb.light0, 0.12),
@@ -255,8 +255,8 @@ function workbenchColors(p) {
     'statusBarItem.remoteForeground': L.accentText,
     'statusBarItem.errorBackground': gb.faded_red,
     'statusBarItem.errorForeground': L.accentText,
-    'statusBarItem.warningBackground': gb.faded_yellow,
-    'statusBarItem.warningForeground': L.accentText,
+    'statusBarItem.warningBackground': gb.neutral_yellow,
+    'statusBarItem.warningForeground': gb.dark0, // white on any gruvbox yellow is below 4.5:1
 
     // ── Tabs / editor groups / breadcrumbs ────────────────────────────────
     'editorGroup.border': groupBorder,
@@ -358,8 +358,8 @@ function workbenchColors(p) {
 
     // Gutter (GitGutter colors)
     'editorGutter.background': p.bg0,
-    'editorGutter.addedBackground': p.green,
-    'editorGutter.modifiedBackground': p.aqua,
+    'editorGutter.addedBackground': p.aqua,
+    'editorGutter.modifiedBackground': p.yellow,
     'editorGutter.deletedBackground': p.red,
     'editorGutter.foldingControlForeground': p.fg4,
     'editorGutter.commentRangeForeground': p.bg3,
@@ -376,8 +376,8 @@ function workbenchColors(p) {
     'editorOverviewRuler.errorForeground': p.red,
     'editorOverviewRuler.warningForeground': p.yellow,
     'editorOverviewRuler.infoForeground': p.blue,
-    'editorOverviewRuler.addedForeground': alpha(p.green, 0.7),
-    'editorOverviewRuler.modifiedForeground': alpha(p.aqua, 0.7),
+    'editorOverviewRuler.addedForeground': alpha(p.aqua, 0.7),
+    'editorOverviewRuler.modifiedForeground': alpha(p.yellow, 0.7),
     'editorOverviewRuler.deletedForeground': alpha(p.red, 0.7),
     'minimap.background': p.bg0,
     'minimap.findMatchHighlight': alpha(n.yellow, 0.7),
@@ -387,8 +387,8 @@ function workbenchColors(p) {
     'minimapSlider.background': alpha(p.bg3, 0.3),
     'minimapSlider.hoverBackground': alpha(p.bg3, 0.5),
     'minimapSlider.activeBackground': alpha(p.bg4, 0.5),
-    'minimapGutter.addedBackground': p.green,
-    'minimapGutter.modifiedBackground': p.aqua,
+    'minimapGutter.addedBackground': p.aqua,
+    'minimapGutter.modifiedBackground': p.yellow,
     'minimapGutter.deletedBackground': p.red,
 
     // ── Widgets (suggest, hover, find, peek) ──────────────────────────────
@@ -430,15 +430,15 @@ function workbenchColors(p) {
     'peekViewResult.selectionForeground': p.fg0,
 
     // ── Diff editor / merge conflicts ─────────────────────────────────────
-    'diffEditor.insertedTextBackground': alpha(p.green, 0.25),
+    'diffEditor.insertedTextBackground': alpha(p.aqua, 0.25),
     'diffEditor.removedTextBackground': alpha(p.red, 0.25),
-    'diffEditor.insertedLineBackground': alpha(p.green, 0.12),
+    'diffEditor.insertedLineBackground': alpha(p.aqua, 0.12),
     'diffEditor.removedLineBackground': alpha(p.red, 0.12),
     'diffEditor.diagonalFill': alpha(p.bg2, 0.6),
     'diffEditor.border': p.bg1,
-    'diffEditorGutter.insertedLineBackground': alpha(p.green, 0.2),
+    'diffEditorGutter.insertedLineBackground': alpha(p.aqua, 0.2),
     'diffEditorGutter.removedLineBackground': alpha(p.red, 0.2),
-    'diffEditorOverview.insertedForeground': alpha(p.green, 0.6),
+    'diffEditorOverview.insertedForeground': alpha(p.aqua, 0.6),
     'diffEditorOverview.removedForeground': alpha(p.red, 0.6),
     'merge.currentHeaderBackground': alpha(p.aqua, 0.4),
     'merge.currentContentBackground': alpha(p.aqua, 0.15),
@@ -452,11 +452,11 @@ function workbenchColors(p) {
     'editorOverviewRuler.commonContentForeground': p.bg4,
 
     // ── Git decorations ───────────────────────────────────────────────────
-    'gitDecoration.addedResourceForeground': p.green,
-    'gitDecoration.modifiedResourceForeground': p.aqua,
+    'gitDecoration.addedResourceForeground': p.aqua,
+    'gitDecoration.modifiedResourceForeground': p.yellow,
     'gitDecoration.deletedResourceForeground': p.red,
     'gitDecoration.renamedResourceForeground': p.blue,
-    'gitDecoration.untrackedResourceForeground': p.green,
+    'gitDecoration.untrackedResourceForeground': p.aqua,
     'gitDecoration.ignoredResourceForeground': p.bg4,
     'gitDecoration.conflictingResourceForeground': p.purple,
     'gitDecoration.submoduleResourceForeground': p.blue,
@@ -487,7 +487,7 @@ function workbenchColors(p) {
     'terminalCommandDecoration.successBackground': p.green,
     'terminalCommandDecoration.errorBackground': p.red,
     // g:terminal_color_0..15 as set by gruvbox.vim
-    'terminal.ansiBlack': p.bg0,
+    'terminal.ansiBlack': dark ? p.bg0 : gb.dark0, // gruvbox.vim uses the background; light themes keep black dark
     'terminal.ansiRed': n.red,
     'terminal.ansiGreen': n.green,
     'terminal.ansiYellow': n.yellow,
@@ -590,7 +590,7 @@ function workbenchColors(p) {
     'welcomePage.tileHoverBackground': p.bg2,
     'walkThrough.embeddedEditorBackground': p.bg1,
     'settings.headerForeground': p.fg1,
-    'settings.modifiedItemIndicator': p.aqua,
+    'settings.modifiedItemIndicator': p.yellow,
     'settings.focusedRowBackground': alpha(p.bg1, 0.6),
     'settings.rowHoverBackground': alpha(p.bg1, 0.4),
     'settings.focusedRowBorder': transparent,
@@ -601,9 +601,9 @@ function workbenchColors(p) {
     'notebookStatusSuccessIcon.foreground': p.green,
     'notebookStatusErrorIcon.foreground': p.red,
     'notebookStatusRunningIcon.foreground': p.blue,
-    'extensionButton.prominentBackground': p.bg2,
-    'extensionButton.prominentForeground': p.fg1,
-    'extensionButton.prominentHoverBackground': p.bg3,
+    'extensionButton.prominentBackground': L.accent,
+    'extensionButton.prominentForeground': L.accentText,
+    'extensionButton.prominentHoverBackground': L.accentHover,
     'extensionBadge.remoteBackground': p.blue,
     'extensionBadge.remoteForeground': p.bg0,
     'extensionIcon.starForeground': p.yellow,

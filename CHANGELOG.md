@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.10
+
+- Extension page links to the GitHub repository, README and issues.
+
+## 0.1.9
+
+- Added lines in the diff editor are aqua, matching the gutter and explorer.
+- The Settings editor's modified-setting marker is yellow, like other
+  "modified" markers.
+- Status bar: the debugging background is `faded_orange` (was 3.4:1 under the
+  white text, now 5.4:1). Warning items are `neutral_yellow` with dark text
+  (5.9:1, was 3.3:1).
+- Light themes: terminal ANSI black is `#282828` instead of the cream background.
+- Extension Install buttons use the blue accent like other primary buttons.
+
+## 0.1.8
+
+- Git colors: modified files and lines are now yellow (were aqua), and new
+  (untracked/added) files and lines are aqua (were green). Gruvbox's green
+  leans yellow, so new files looked more "modified" than modified ones did.
+
 ## 0.1.7
 
 - Repository cleanup; no theme changes.
