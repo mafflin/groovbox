@@ -1,8 +1,8 @@
 {
   "name": "groovbox",
   "displayName": "Groovbox",
-  "description": "Gruvbox for VS Code. A modern take on Tom Philbin's Gruvbox Themes, with the full UI and semantic highlighting.",
-  "version": "0.1.10",
+  "description": "Gruvbox for VS Code, with code colors from Brian Reilly's Sublime port, plus the full UI and semantic highlighting.",
+  "version": "0.1.11",
   "publisher": "mafflin",
   "license": "MIT",
   "repository": {

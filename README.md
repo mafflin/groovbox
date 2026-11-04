@@ -1,8 +1,10 @@
 # Groovbox
 
-A modern take on Tom Philbin's [Gruvbox Themes](https://github.com/tomphilbin/gruvbox-themes-vscode),
-built on [gruvbox](https://github.com/morhetz/gruvbox) by Pavel Pertsev. Same code
-colors, now with the full UI and semantic highlighting.
+A modern take on [gruvbox](https://github.com/morhetz/gruvbox) by Pavel Pertsev
+for VS Code. Code colors come from Brian Reilly's
+[gruvbox for Sublime Text](https://github.com/Briles/gruvbox), by way of Tom
+Philbin's [Gruvbox Themes](https://github.com/tomphilbin/gruvbox-themes-vscode).
+This adds the full UI and semantic highlighting.
 
 Dark and Light, each in Hard, Medium and Soft contrast.
 

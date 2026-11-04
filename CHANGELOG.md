@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.11
+
+- Credits: code colors are credited to Brian Reilly's gruvbox Sublime port;
+  no theme changes.
+
 ## 0.1.10
 
 - Extension page links to the GitHub repository, README and issues.
@@ -35,9 +40,8 @@
 - Dark themes: softer panel shades. Gruvbox's dark scale has big steps, so the
   sidebar, hover, inactive tabs, activity bar, section headers, title bar and
   inputs now use in-between shades that blend two neighboring gruvbox colors.
-  They match the lightness steps of VS Code's default layout (Tom Philbin's
-  theme). In Dark Medium the explorer is `#242526`, just below the `#282828`
-  editor, instead of `#1d2021`.
+  They match the lightness steps of VS Code's default layout. In Dark Medium the
+  explorer is `#242526`, just below the `#282828` editor, instead of `#1d2021`.
 - Input placeholder text is brighter (at least 4.5:1 contrast).
 
 ## 0.1.4
@@ -49,9 +53,9 @@
 
 ## 0.1.3
 
-- Panel layout now follows VS Code's default layout, as seen in Tom Philbin's
-  theme: lighter title bar and activity bar, sidebar close to the editor, lighter
-  inactive tabs, section header bands, blue selection, buttons and status bar.
+- Panel layout now follows VS Code's default layout: lighter title bar and
+  activity bar, sidebar close to the editor, lighter inactive tabs, section
+  header bands, blue selection, buttons and status bar.
   Every color is the gruvbox color of the closest lightness.
 - Light themes get a dark activity bar, as in VS Code's classic Light theme.
 
