@@ -1,13 +1,7 @@
 "use strict";
 
-// Syntax colors ported from Brian Reilly's gruvbox for Sublime Text
-// (https://github.com/Briles/gruvbox, MIT), as packaged for VS Code by
-// Tom Philbin (gruvbox-themes). Scope selectors are kept verbatim; every hex
-// value was mapped back to its gruvbox palette name so the rules work for
-// both variants. Rules that only target Sublime plugins (BracketHighlighter,
-// SublimeLinter, PlainTasks, HexViewer, Find in Files, …) were dropped.
-//
-// Generated once from the original .tmTheme files, then maintained by hand.
+// Syntax colors based on Brian Reilly's gruvbox for Sublime Text
+// (https://github.com/Briles/gruvbox).
 
 function rule(name, scope, foreground, fontStyle) {
   const settings = { foreground };

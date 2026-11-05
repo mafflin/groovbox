@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.3
+
+- Dark: first-level rainbow brackets are bright orange (`#fe8019`) instead of
+  neutral orange (`#d65d0e`), which read too dark next to code.
+
 ## 0.2.1
 
 - Dark: method calls use bright aqua (`#8ec07c`) instead of neutral aqua

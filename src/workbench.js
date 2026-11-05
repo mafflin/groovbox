@@ -324,8 +324,9 @@ function workbenchColors(p) {
     "editorStickyScroll.shadow": shadow,
     "editorStickyScrollHover.background": p.bg1,
 
-    // Rainbow brackets: same colors as gruvbox.vim's rainbow_guifgs.
-    "editorBracketHighlight.foreground1": n.orange,
+    // Rainbow brackets: same colors as gruvbox.vim's rainbow_guifgs, except the
+    // first level on dark, which is bright orange (neutral orange reads too dark).
+    "editorBracketHighlight.foreground1": p.mode === "dark" ? p.orange : n.orange,
     "editorBracketHighlight.foreground2": n.red,
     "editorBracketHighlight.foreground3": n.purple,
     "editorBracketHighlight.foreground4": n.blue,
