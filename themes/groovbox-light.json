@@ -397,7 +397,7 @@
     "debugIcon.stepBackForeground": "#076678",
     "debugTokenExpression.name": "#076678",
     "debugTokenExpression.value": "#504945",
-    "debugTokenExpression.string": "#79740e",
+    "debugTokenExpression.string": "#282828",
     "debugTokenExpression.boolean": "#8f3f71",
     "debugTokenExpression.number": "#8f3f71",
     "debugTokenExpression.error": "#9d0006",
@@ -433,7 +433,7 @@
     "symbolIcon.propertyForeground": "#076678",
     "symbolIcon.referenceForeground": "#076678",
     "symbolIcon.snippetForeground": "#504945",
-    "symbolIcon.stringForeground": "#79740e",
+    "symbolIcon.stringForeground": "#282828",
     "symbolIcon.structForeground": "#b57614",
     "symbolIcon.textForeground": "#504945",
     "symbolIcon.typeParameterForeground": "#b57614",
@@ -753,7 +753,7 @@
         "variable.parameter.url"
       ],
       "settings": {
-        "foreground": "#79740e"
+        "foreground": "#282828"
       }
     },
     {
@@ -832,7 +832,21 @@
         "string"
       ],
       "settings": {
-        "foreground": "#79740e"
+        "foreground": "#282828"
+      }
+    },
+    {
+      "name": "String Quotes",
+      "scope": [
+        "punctuation.definition.char",
+        "punctuation.definition.string",
+        "punctuation.definition.string string",
+        "string.definition.begin",
+        "string.definition.end",
+        "string.quoted.other punctuation.section.array"
+      ],
+      "settings": {
+        "foreground": "#427b58"
       }
     },
     {
@@ -842,7 +856,7 @@
         "string.regexp"
       ],
       "settings": {
-        "foreground": "#79740e"
+        "foreground": "#282828"
       }
     },
     {
@@ -1093,7 +1107,7 @@
         "support.function"
       ],
       "settings": {
-        "foreground": "#427b58"
+        "foreground": "#79740e"
       }
     },
     {
@@ -1108,7 +1122,7 @@
         "support.function.mutator"
       ],
       "settings": {
-        "foreground": "#427b58"
+        "foreground": "#79740e"
       }
     },
     {
@@ -1121,10 +1135,18 @@
       }
     },
     {
+      "name": "Function Declarations",
+      "scope": [
+        "entity.name.function"
+      ],
+      "settings": {
+        "foreground": "#79740e"
+      }
+    },
+    {
       "name": "Entities",
       "scope": [
         "entity.name.accessor",
-        "entity.name.function",
         "entity.name.label",
         "entity.name.section"
       ],
@@ -1466,9 +1488,7 @@
     }
   ],
   "semanticTokenColors": {
-    "function": "#427b58",
-    "function.declaration": "#79740e",
-    "method": "#427b58",
-    "method.declaration": "#79740e"
+    "function": "#79740e",
+    "method": "#79740e"
   }
 }

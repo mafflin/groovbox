@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.4
+
+- Function and method calls are green instead of aqua, the same as
+  declarations (dark `#b8bb26`, light `#79740e`). Calls look the same in every
+  language, with or without a language server.
+- Strings use the main text color (dark `#fbf1c7`, light `#282828`) instead of
+  green, so green is left to functions. Their quotes are aqua (dark
+  `#8ec07c`, light `#427b58`), like the `${…}` and `#{…}` around interpolation.
+
 ## 0.2.3
 
 - Dark: first-level rainbow brackets are bright orange (`#fe8019`) instead of

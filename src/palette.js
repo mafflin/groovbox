@@ -89,6 +89,12 @@ function getPalette(mode) {
   // Main code text color, as in Brian Reilly's Sublime port.
   p.text = p.fg0;
 
+  // Function and method names, calls and declarations alike.
+  p.func = p.green;
+
+  // Strings: the main text color, so green is left to functions.
+  p.string = p.text;
+
   // Neutral accents are shared by both backgrounds (terminal, rainbow brackets).
   p.neutral = {};
   for (const c of ACCENTS) p.neutral[c] = gb[`neutral_${c}`];

@@ -228,7 +228,7 @@ function tokenColors(p) {
       p.text,
     ),
     rule("Parameters", ["meta.parameters", "variable.parameter"], p.text),
-    rule("SASS Import URL", ["variable.parameter.url"], p.green),
+    rule("SASS Import URL", ["variable.parameter.url"], p.string),
     rule(
       "Language Constants",
       [
@@ -275,11 +275,25 @@ function tokenColors(p) {
       ],
       p.red,
     ),
-    rule("Strings", ["meta.object-literal.key string", "string"], p.green),
+    rule("Strings", ["meta.object-literal.key string", "string"], p.string),
+    rule(
+      "String Quotes",
+      [
+        "punctuation.definition.char",
+        "punctuation.definition.string",
+        // Python f-strings nest the string scope inside the quote's.
+        "punctuation.definition.string string",
+        // Ruby %w(…) / %i(…) and heredoc delimiters.
+        "string.definition.begin",
+        "string.definition.end",
+        "string.quoted.other punctuation.section.array",
+      ],
+      p.aqua,
+    ),
     rule(
       "Regular Expressions Text",
       ["source.regexp", "string.regexp"],
-      p.green,
+      p.string,
     ),
     rule(
       "Regular Expressions Start & End Punctuation",
@@ -403,13 +417,13 @@ function tokenColors(p) {
         "entity.name.function.jade",
         "entity.name.function.pug",
         "keyword.other.special-method",
-        // Ruby, TS and others tag call names like declarations; keep them aqua.
+        // Ruby, TS and others tag call names like declarations.
         "meta.function-call entity.name.function",
         "meta.function-call variable.function",
         "meta.function-call variable.other.dollar.only punctuation.dollar",
         "support.function",
       ],
-      p.aqua,
+      p.func,
     ),
     rule(
       "Method Calls",
@@ -422,17 +436,13 @@ function tokenColors(p) {
         "meta.method-call variable.function",
         "support.function.mutator",
       ],
-      p.aqua,
+      p.func,
     ),
     rule("Special Variables", ["support.module"], p.purple),
+    rule("Function Declarations", ["entity.name.function"], p.func),
     rule(
       "Entities",
-      [
-        "entity.name.accessor",
-        "entity.name.function",
-        "entity.name.label",
-        "entity.name.section",
-      ],
+      ["entity.name.accessor", "entity.name.label", "entity.name.section"],
       p.green,
     ),
     rule("Modules", ["entity.name.module"], p.orange),
@@ -620,17 +630,14 @@ function tokenColors(p) {
   ];
 }
 
-// The .tmTheme format can't enable semantic highlighting. These rules keep the
-// Sublime look when a language server provides semantic tokens: function and
-// method calls aqua, declarations green. (Sublime uses neutral aqua for method
-// calls on dark; it reads too dark.) Everything else falls back to the
-// TextMate rules above via VS Code's standard semantic → scope mapping.
+// The .tmTheme format can't enable semantic highlighting. These rules keep
+// functions and methods in the function color, calls and declarations alike,
+// when a language server provides semantic tokens. Everything else falls back to the TextMate
+// rules above via VS Code's standard semantic → scope mapping.
 function semanticTokenColors(p) {
   return {
-    function: p.aqua,
-    "function.declaration": p.green,
-    method: p.aqua,
-    "method.declaration": p.green,
+    function: p.func,
+    method: p.func,
   };
 }
 
