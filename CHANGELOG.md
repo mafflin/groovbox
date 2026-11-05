@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1
+
+- Dark: method calls use bright aqua (`#8ec07c`) instead of neutral aqua
+  (`#689d6a`), the same as function calls. Neutral aqua read too dark.
+- Calls that the grammar tags like declarations (Ruby `foo(…)` and
+  `obj.foo`, TypeScript, C, PHP, …) are aqua instead of green, so only
+  declarations are green. In Ruby, calls with and without parentheses now
+  look the same.
+
 ## 0.2.0
 
 - Removed the Hard and Soft variants. Two themes remain: **Groovbox Dark** and

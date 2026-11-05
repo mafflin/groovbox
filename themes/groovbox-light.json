@@ -1087,6 +1087,7 @@
         "entity.name.function.jade",
         "entity.name.function.pug",
         "keyword.other.special-method",
+        "meta.function-call entity.name.function",
         "meta.function-call variable.function",
         "meta.function-call variable.other.dollar.only punctuation.dollar",
         "support.function"

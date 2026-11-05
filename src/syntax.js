@@ -409,6 +409,8 @@ function tokenColors(p) {
         "entity.name.function.jade",
         "entity.name.function.pug",
         "keyword.other.special-method",
+        // Ruby, TS and others tag call names like declarations; keep them aqua.
+        "meta.function-call entity.name.function",
         "meta.function-call variable.function",
         "meta.function-call variable.other.dollar.only punctuation.dollar",
         "support.function",
@@ -426,7 +428,7 @@ function tokenColors(p) {
         "meta.method-call variable.function",
         "support.function.mutator",
       ],
-      sub(p, "aqua"),
+      p.aqua,
     ),
     rule("Special Variables", ["support.module"], p.purple),
     rule(
@@ -625,14 +627,15 @@ function tokenColors(p) {
 }
 
 // The .tmTheme format can't enable semantic highlighting. These rules keep the
-// Sublime look when a language server provides semantic tokens: calls aqua,
-// method calls neutral aqua, declarations green. Everything else falls back to
-// the TextMate rules above via VS Code's standard semantic → scope mapping.
+// Sublime look when a language server provides semantic tokens: function and
+// method calls aqua, declarations green. (Sublime uses neutral aqua for method
+// calls on dark; it reads too dark.) Everything else falls back to the
+// TextMate rules above via VS Code's standard semantic → scope mapping.
 function semanticTokenColors(p) {
   return {
     function: p.aqua,
     "function.declaration": p.green,
-    method: sub(p, "aqua"),
+    method: p.aqua,
     "method.declaration": p.green,
   };
 }

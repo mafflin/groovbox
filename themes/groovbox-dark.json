@@ -1087,6 +1087,7 @@
         "entity.name.function.jade",
         "entity.name.function.pug",
         "keyword.other.special-method",
+        "meta.function-call entity.name.function",
         "meta.function-call variable.function",
         "meta.function-call variable.other.dollar.only punctuation.dollar",
         "support.function"
@@ -1107,7 +1108,7 @@
         "support.function.mutator"
       ],
       "settings": {
-        "foreground": "#689d6a"
+        "foreground": "#8ec07c"
       }
     },
     {
@@ -1467,7 +1468,7 @@
   "semanticTokenColors": {
     "function": "#8ec07c",
     "function.declaration": "#b8bb26",
-    "method": "#689d6a",
+    "method": "#8ec07c",
     "method.declaration": "#b8bb26"
   }
 }
