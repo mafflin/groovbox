@@ -4,3 +4,4 @@ src/**
 *.vsix
 node_modules/**
 images/icon.svg
+images/screenshots/**

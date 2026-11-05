@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.12
+
+- Light Hard: hovering items in the explorer, Quick Open and suggestions is
+  visible again (the hover color matched the sidebar).
+- Hovering a warning item in the status bar keeps its dark text (it turned
+  white on yellow).
+- Light themes: terminal bright white is light gray (`#a89984`) and no longer
+  matches black.
+- Light themes: method calls, CSS pseudo-classes/elements and attribute
+  selector names use the regular accents instead of the neutral ones (were
+  about 2:1 contrast).
+- Dark Soft: inactive tabs are `#282828`, so they stand apart from the active tab.
+- README: screenshots of all six variants, clearer credits.
+
 ## 0.1.11
 
 - Credits: code colors are credited to Brian Reilly's gruvbox Sublime port;

@@ -139,6 +139,7 @@
     "statusBarItem.errorForeground": "#fbf1c7",
     "statusBarItem.warningBackground": "#d79921",
     "statusBarItem.warningForeground": "#282828",
+    "statusBarItem.warningHoverForeground": "#282828",
     "editorGroup.border": "#504945",
     "editorGroup.dropBackground": "#50494599",
     "editorGroupHeader.tabsBackground": "#242526",

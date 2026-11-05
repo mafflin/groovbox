@@ -1,53 +1,53 @@
-'use strict';
+"use strict";
 
 // Original gruvbox palette by Pavel Pertsev (morhetz).
 // https://github.com/morhetz/gruvbox  (MIT/X11)
 const gb = {
-  dark0_hard: '#1d2021',
-  dark0: '#282828',
-  dark0_soft: '#32302f',
-  dark1: '#3c3836',
-  dark2: '#504945',
-  dark3: '#665c54',
-  dark4: '#7c6f64',
+  dark0_hard: "#1d2021",
+  dark0: "#282828",
+  dark0_soft: "#32302f",
+  dark1: "#3c3836",
+  dark2: "#504945",
+  dark3: "#665c54",
+  dark4: "#7c6f64",
 
-  gray_245: '#928374',
-  gray_244: '#928374',
+  gray_245: "#928374",
+  gray_244: "#928374",
 
-  light0_hard: '#f9f5d7',
-  light0: '#fbf1c7',
-  light0_soft: '#f2e5bc',
-  light1: '#ebdbb2',
-  light2: '#d5c4a1',
-  light3: '#bdae93',
-  light4: '#a89984',
+  light0_hard: "#f9f5d7",
+  light0: "#fbf1c7",
+  light0_soft: "#f2e5bc",
+  light1: "#ebdbb2",
+  light2: "#d5c4a1",
+  light3: "#bdae93",
+  light4: "#a89984",
 
-  bright_red: '#fb4934',
-  bright_green: '#b8bb26',
-  bright_yellow: '#fabd2f',
-  bright_blue: '#83a598',
-  bright_purple: '#d3869b',
-  bright_aqua: '#8ec07c',
-  bright_orange: '#fe8019',
+  bright_red: "#fb4934",
+  bright_green: "#b8bb26",
+  bright_yellow: "#fabd2f",
+  bright_blue: "#83a598",
+  bright_purple: "#d3869b",
+  bright_aqua: "#8ec07c",
+  bright_orange: "#fe8019",
 
-  neutral_red: '#cc241d',
-  neutral_green: '#98971a',
-  neutral_yellow: '#d79921',
-  neutral_blue: '#458588',
-  neutral_purple: '#b16286',
-  neutral_aqua: '#689d6a',
-  neutral_orange: '#d65d0e',
+  neutral_red: "#cc241d",
+  neutral_green: "#98971a",
+  neutral_yellow: "#d79921",
+  neutral_blue: "#458588",
+  neutral_purple: "#b16286",
+  neutral_aqua: "#689d6a",
+  neutral_orange: "#d65d0e",
 
-  faded_red: '#9d0006',
-  faded_green: '#79740e',
-  faded_yellow: '#b57614',
-  faded_blue: '#076678',
-  faded_purple: '#8f3f71',
-  faded_aqua: '#427b58',
-  faded_orange: '#af3a03',
+  faded_red: "#9d0006",
+  faded_green: "#79740e",
+  faded_yellow: "#b57614",
+  faded_blue: "#076678",
+  faded_purple: "#8f3f71",
+  faded_aqua: "#427b58",
+  faded_orange: "#af3a03",
 };
 
-const ACCENTS = ['red', 'green', 'yellow', 'blue', 'purple', 'aqua', 'orange'];
+const ACCENTS = ["red", "green", "yellow", "blue", "purple", "aqua", "orange"];
 
 /**
  * Resolve the palette the same way gruvbox.vim does for a given
@@ -57,10 +57,10 @@ const ACCENTS = ['red', 'green', 'yellow', 'blue', 'purple', 'aqua', 'orange'];
  * @param {'hard'|'medium'|'soft'} contrast
  */
 function getPalette(mode, contrast) {
-  const suffix = contrast === 'medium' ? '' : `_${contrast}`;
+  const suffix = contrast === "medium" ? "" : `_${contrast}`;
   const p = { mode, contrast };
 
-  if (mode === 'dark') {
+  if (mode === "dark") {
     p.bg0 = gb[`dark0${suffix}`];
     p.bg1 = gb.dark1;
     p.bg2 = gb.dark2;
@@ -91,7 +91,7 @@ function getPalette(mode, contrast) {
   // Main code text color, as in Brian Reilly's Sublime port: the
   // opposite end of the scale at the same contrast level
   // (dark hard → light0_hard, light soft → dark0_soft, …).
-  p.text = mode === 'dark' ? gb[`light0${suffix}`] : gb[`dark0${suffix}`];
+  p.text = mode === "dark" ? gb[`light0${suffix}`] : gb[`dark0${suffix}`];
 
   // Neutral accents are shared by both backgrounds (terminal, rainbow brackets).
   p.neutral = {};
@@ -103,7 +103,7 @@ function getPalette(mode, contrast) {
 /** Append an alpha channel (0..1) to a #rrggbb color. */
 function alpha(hex, a) {
   const byte = Math.round(Math.min(1, Math.max(0, a)) * 255);
-  return hex + byte.toString(16).padStart(2, '0');
+  return hex + byte.toString(16).padStart(2, "0");
 }
 
 /**
@@ -112,9 +112,16 @@ function alpha(hex, a) {
  */
 function mix(a, b, t) {
   const ch = (h, i) => parseInt(h.slice(i, i + 2), 16);
-  return '#' + [1, 3, 5]
-    .map((i) => Math.round(ch(a, i) * (1 - t) + ch(b, i) * t).toString(16).padStart(2, '0'))
-    .join('');
+  return (
+    "#" +
+    [1, 3, 5]
+      .map((i) =>
+        Math.round(ch(a, i) * (1 - t) + ch(b, i) * t)
+          .toString(16)
+          .padStart(2, "0"),
+      )
+      .join("")
+  );
 }
 
 module.exports = { gb, getPalette, alpha, mix };
