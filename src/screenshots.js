@@ -16,7 +16,6 @@ const GAP = 96; // between windows
 const PAD = 96; // around the windows
 const RADIUS = 16; // window corners
 const SHADOW = { blur: 24, offsetY: 16, opacity: 0.35 };
-const BACKGROUND = "#ffffff";
 
 const roundedRect = (w, h, fill, opacity = 1) =>
   Buffer.from(
@@ -96,12 +95,11 @@ async function main() {
     create: {
       width: 2 * PAD + cols * w + (cols - 1) * GAP,
       height: 2 * PAD + rows * h + (rows - 1) * GAP,
-      channels: 3,
-      background: BACKGROUND,
+      channels: 4,
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
     },
   })
     .composite(layers)
-    .removeAlpha()
     .png({ compressionLevel: 9 })
     .toFile(OUT);
 
