@@ -50,18 +50,16 @@ const gb = {
 const ACCENTS = ["red", "green", "yellow", "blue", "purple", "aqua", "orange"];
 
 /**
- * Resolve the palette the same way gruvbox.vim does for a given
- * `background` and `g:gruvbox_contrast_{dark,light}` setting.
+ * Resolve the palette the same way gruvbox.vim does for a given `background`,
+ * at the default (medium) contrast.
  *
  * @param {'dark'|'light'} mode
- * @param {'hard'|'medium'|'soft'} contrast
  */
-function getPalette(mode, contrast) {
-  const suffix = contrast === "medium" ? "" : `_${contrast}`;
-  const p = { mode, contrast };
+function getPalette(mode) {
+  const p = { mode };
 
   if (mode === "dark") {
-    p.bg0 = gb[`dark0${suffix}`];
+    p.bg0 = gb.dark0;
     p.bg1 = gb.dark1;
     p.bg2 = gb.dark2;
     p.bg3 = gb.dark3;
@@ -74,7 +72,7 @@ function getPalette(mode, contrast) {
     p.fg4 = gb.light4;
     for (const c of ACCENTS) p[c] = gb[`bright_${c}`];
   } else {
-    p.bg0 = gb[`light0${suffix}`];
+    p.bg0 = gb.light0;
     p.bg1 = gb.light1;
     p.bg2 = gb.light2;
     p.bg3 = gb.light3;
@@ -88,10 +86,8 @@ function getPalette(mode, contrast) {
     for (const c of ACCENTS) p[c] = gb[`faded_${c}`];
   }
 
-  // Main code text color, as in Brian Reilly's Sublime port: the
-  // opposite end of the scale at the same contrast level
-  // (dark hard → light0_hard, light soft → dark0_soft, …).
-  p.text = mode === "dark" ? gb[`light0${suffix}`] : gb[`dark0${suffix}`];
+  // Main code text color, as in Brian Reilly's Sublime port.
+  p.text = p.fg0;
 
   // Neutral accents are shared by both backgrounds (terminal, rainbow brackets).
   p.neutral = {};

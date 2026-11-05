@@ -2,7 +2,7 @@
   "name": "groovbox",
   "displayName": "Groovbox",
   "description": "Gruvbox for VS Code, with code colors from Brian Reilly's Sublime port, plus the full UI and semantic highlighting.",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "publisher": "mafflin",
   "license": "MIT",
   "repository": {
@@ -36,34 +36,16 @@
   "contributes": {
     "themes": [
       {
-        "label": "Groovbox Dark Hard",
+        "id": "Groovbox Dark Medium",
+        "label": "Groovbox Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/groovbox-dark-hard.json"
+        "path": "./themes/groovbox-dark.json"
       },
       {
-        "label": "Groovbox Dark Medium",
-        "uiTheme": "vs-dark",
-        "path": "./themes/groovbox-dark-medium.json"
-      },
-      {
-        "label": "Groovbox Dark Soft",
-        "uiTheme": "vs-dark",
-        "path": "./themes/groovbox-dark-soft.json"
-      },
-      {
-        "label": "Groovbox Light Hard",
+        "id": "Groovbox Light Medium",
+        "label": "Groovbox Light",
         "uiTheme": "vs",
-        "path": "./themes/groovbox-light-hard.json"
-      },
-      {
-        "label": "Groovbox Light Medium",
-        "uiTheme": "vs",
-        "path": "./themes/groovbox-light-medium.json"
-      },
-      {
-        "label": "Groovbox Light Soft",
-        "uiTheme": "vs",
-        "path": "./themes/groovbox-light-soft.json"
+        "path": "./themes/groovbox-light.json"
       }
     ]
   },

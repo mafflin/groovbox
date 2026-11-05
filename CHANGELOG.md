@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0
+
+- Removed the Hard and Soft variants. Two themes remain: **Groovbox Dark** and
+  **Groovbox Light** (formerly Dark Medium and Light Medium, colors unchanged).
+- If you used Medium, nothing changes: your theme setting keeps working.
+  If you used Hard or Soft, VS Code falls back to its default theme; pick
+  Groovbox Dark or Light again in *Preferences: Color Theme*.
+
 ## 0.1.12
 
 - Light Hard: hovering items in the explorer, Quick Open and suggestions is

@@ -1,7 +1,7 @@
 "use strict";
 
-// Combines the six screenshots in images/screenshots/ into one 3×2 grid for the
-// README: Dark on top, Light below, Hard / Medium / Soft from left to right.
+// Combines the screenshots in images/screenshots/ into one image for the
+// README: Dark on the left, Light on the right.
 // Usage: npm run screenshots
 
 const path = require("path");
@@ -10,11 +10,10 @@ const sharp = require("sharp");
 const DIR = path.resolve(__dirname, "..", "images", "screenshots");
 const OUT = path.join(DIR, "grid.png");
 const MODES = ["dark", "light"];
-const CONTRASTS = ["hard", "medium", "soft"];
 
 const SCALE = 0.5; // of the source screenshots
 const GAP = 96; // between windows
-const PAD = 96; // around the grid
+const PAD = 96; // around the windows
 const RADIUS = 16; // window corners
 const SHADOW = { blur: 24, offsetY: 16, opacity: 0.35 };
 const BACKGROUND = "#ffffff";
@@ -26,9 +25,7 @@ const roundedRect = (w, h, fill, opacity = 1) =>
   );
 
 async function main() {
-  const files = MODES.flatMap((m) =>
-    CONTRASTS.map((c) => path.join(DIR, `${m}-${c}.png`)),
-  );
+  const files = MODES.map((m) => path.join(DIR, `${m}.png`));
 
   const sizes = await Promise.all(files.map((f) => sharp(f).metadata()));
   const { width: srcW, height: srcH } = sizes[0];
@@ -43,12 +40,14 @@ async function main() {
 
   const w = Math.round(srcW * SCALE);
   const h = Math.round(srcH * SCALE);
-  const cols = CONTRASTS.length;
-  const rows = MODES.length;
+  const cols = MODES.length;
+  const rows = 1;
 
   // Shadow: a blurred rounded rectangle, padded so the blur isn't clipped.
+  // Two passes, because sharp always composites last: blurring in the same
+  // pipeline would blur the empty canvas and leave the rectangle sharp.
   const spread = SHADOW.blur * 3;
-  const shadow = await sharp({
+  const shadowRect = await sharp({
     create: {
       width: w + 2 * spread,
       height: h + 2 * spread,
@@ -63,6 +62,9 @@ async function main() {
         top: spread,
       },
     ])
+    .png()
+    .toBuffer();
+  const shadow = await sharp(shadowRect)
     .blur(SHADOW.blur / 2)
     .png()
     .toBuffer();

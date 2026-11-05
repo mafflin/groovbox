@@ -16,9 +16,8 @@ const DARK = {
 /**
  * Panel layout: VS Code's built-in default UI (what Tom Philbin's theme shows,
  * since it defines no UI colors), with every color replaced by the gruvbox color
- * of the closest lightness (dark: the in-between shades above). Comments give the VS Code default being replaced.
- * Like the original, the layout is fixed per mode: the contrast setting only
- * changes the editor (and the active tab, panel and breadcrumbs that follow it).
+ * of the closest lightness (dark: the in-between shades above). Comments give
+ * the VS Code default being replaced.
  */
 const LAYOUT = {
   dark: {
@@ -30,7 +29,6 @@ const LAYOUT = {
     side: DARK.side, //                  sideBar, tab strip, widgets  #252526
     sectionHeader: DARK.band, //         section header    #80808033 over #252526
     tabInactive: DARK.hover, //          inactive tab      #2d2d2d
-    tabInactiveAlt: gb.dark0, //         …when the editor is #32302f (Soft): #2e2c2c is barely distinct
     tabActiveText: gb.light0, //         active tab text   #ffffff
     tabInactiveText: gb.light4, //       inactive tab text #ffffff80 over #2d2d2d
     text: gb.light2, //                  foreground        #cccccc
@@ -63,19 +61,16 @@ const LAYOUT = {
     activityIcon: gb.light0, //          icons             #ffffff
     activityIconInactive: gb.gray_245, // inactive icons   #ffffff66 over #2c2c2c
     side: gb.light0_hard, //             sideBar, tab strip, widgets  #f3f3f3
-    sideAlt: gb.light0, //               …when the editor is #f9f5d7 (Hard)
     sectionHeader: gb.light1, //         section header    #80808033 over #f3f3f3
-    tabInactive: gb.light0_soft, //      inactive tab      #ececec (light0 would equal the Medium editor)
-    tabInactiveAlt: gb.light0, //        …when the editor is #f2e5bc (Soft)
+    tabInactive: gb.light0_soft, //      inactive tab      #ececec (light0 would equal the editor)
     tabActiveText: gb.dark0_soft, //     active tab text   #333333
     tabInactiveText: gb.dark3, //        inactive tab text #333333b3 over #ececec
     text: gb.dark3, //                   foreground        #616161
     textMuted: gb.dark3, //              description       #616161b3 (anything lighter drops below 4.5:1)
-    breadcrumb: gb.dark3, //             breadcrumb        #616161cc (dark4 drops below 4.5:1 on Soft)
+    breadcrumb: gb.dark3, //             breadcrumb        #616161cc (dark4 is below 4.5:1)
     control: gb.light0_hard, //          input, dropdown, menu  #ffffff
     controlBorder: gb.light1, //         input border: gruvbox has nothing lighter than the sidebar
     hover: gb.light0, //                 list hover        #f0f0f0
-    hoverAlt: mix(gb.light0, gb.light0_soft, 0.5), // #f7ebc2 …when the sidebar is light0 (Hard)
     inactiveSelection: gb.light0_soft, // inactive select. #e4e6f1
     selection: gb.faded_blue, //         focused selection #0060c0
     selectionText: gb.light0_hard, //                      #ffffff
@@ -89,7 +84,7 @@ const LAYOUT = {
     badgeText: gb.dark0_soft, //                           #333333
     separator: gb.light2, //             menu separator    #d4d4d4
     panelTitle: gb.dark1, //             panel title       #424242
-    panelTitleInactive: gb.dark3, //                       #424242bf (dark4 drops below 4.5:1 on Soft)
+    panelTitleInactive: gb.dark3, //                       #424242bf (dark4 is below 4.5:1)
     notificationHeader: gb.light0_soft, // notification hdr #e7e7e7
     lineNumberActive: gb.dark1, //       active line no.   #0b216f
   },
@@ -107,16 +102,6 @@ function workbenchColors(p) {
   const shadow = dark ? "#00000066" : alpha(p.bg4, 0.4);
   const n = p.neutral;
   const groupBorder = dark ? L.border : gb.light0_soft; // editorGroup.border #444444 / #e7e7e7
-  // The sidebar must not match the editor: the shade step is the only divider.
-  const side = L.side === p.bg0 ? L.sideAlt : L.side;
-  // List hover must not match the sidebar it sits on.
-  const hover = L.hover === side ? L.hoverAlt : L.hover;
-  // Inactive tabs must stand apart from the active tab, which shares the editor
-  // background (Dark Soft's #32302f is only a few steps from the usual #2e2c2c).
-  const tabInactive =
-    L.tabInactive === p.bg0 || (dark && p.contrast === "soft")
-      ? L.tabInactiveAlt
-      : L.tabInactive;
 
   return {
     // ── Base ───────────────────────────────────────────────────────────────
@@ -165,11 +150,11 @@ function workbenchColors(p) {
     "inputOption.activeBackground": alpha(p.blue, 0.3),
     "inputOption.activeBorder": L.focus,
     "inputOption.activeForeground": p.fg0,
-    "inputValidation.errorBackground": side,
+    "inputValidation.errorBackground": L.side,
     "inputValidation.errorBorder": p.red,
-    "inputValidation.warningBackground": side,
+    "inputValidation.warningBackground": L.side,
     "inputValidation.warningBorder": p.yellow,
-    "inputValidation.infoBackground": side,
+    "inputValidation.infoBackground": L.side,
     "inputValidation.infoBorder": p.blue,
     "badge.background": L.badge,
     "badge.foreground": L.badgeText,
@@ -179,7 +164,7 @@ function workbenchColors(p) {
     "list.activeSelectionForeground": L.selectionText,
     "list.activeSelectionIconForeground": L.selectionText,
     "list.inactiveSelectionBackground": L.inactiveSelection,
-    "list.hoverBackground": hover,
+    "list.hoverBackground": L.hover,
     "list.focusOutline": L.focus,
     "list.highlightForeground": p.blue,
     "list.focusHighlightForeground": gb.bright_yellow,
@@ -187,7 +172,7 @@ function workbenchColors(p) {
     "list.errorForeground": p.red,
     "list.warningForeground": p.yellow,
     "list.invalidItemForeground": p.red,
-    "listFilterWidget.background": side,
+    "listFilterWidget.background": L.side,
     "listFilterWidget.outline": L.focus,
     "listFilterWidget.noMatchesOutline": p.red,
     "tree.indentGuidesStroke": p.bg3,
@@ -205,7 +190,7 @@ function workbenchColors(p) {
     "activityBarTop.foreground": L.panelTitle,
     "activityBarTop.inactiveForeground": L.panelTitleInactive,
     "activityBarTop.activeBorder": L.panelTitle,
-    "sideBar.background": side,
+    "sideBar.background": L.side,
     "sideBar.foreground": L.text,
     "sideBar.border": transparent,
     "sideBarTitle.foreground": L.text,
@@ -233,7 +218,7 @@ function workbenchColors(p) {
     "commandCenter.activeBackground": alpha(L.titleText, 0.08),
     "commandCenter.activeForeground": L.titleText,
     "commandCenter.inactiveForeground": alpha(L.titleText, 0.6),
-    "quickInput.background": side,
+    "quickInput.background": L.side,
     "quickInput.foreground": L.text,
     "quickInputList.focusBackground": L.selection,
     "quickInputList.focusForeground": L.selectionText,
@@ -270,17 +255,17 @@ function workbenchColors(p) {
     // ── Tabs / editor groups / breadcrumbs ────────────────────────────────
     "editorGroup.border": groupBorder,
     "editorGroup.dropBackground": alpha(p.bg2, 0.6),
-    "editorGroupHeader.tabsBackground": side,
+    "editorGroupHeader.tabsBackground": L.side,
     "editorGroupHeader.tabsBorder": transparent,
     "editorGroupHeader.noTabsBackground": p.bg0,
-    "tab.border": side,
+    "tab.border": L.side,
     "tab.activeBackground": p.bg0, // same as the editor
     "tab.activeForeground": L.tabActiveText,
     "tab.activeBorder": transparent,
     "tab.activeBorderTop": transparent,
     "tab.unfocusedActiveBackground": p.bg0,
     "tab.unfocusedActiveForeground": alpha(L.tabActiveText, 0.5),
-    "tab.inactiveBackground": tabInactive,
+    "tab.inactiveBackground": L.tabInactive,
     "tab.inactiveForeground": L.tabInactiveText,
     "tab.unfocusedInactiveForeground": alpha(L.tabInactiveText, 0.5),
     "tab.lastPinnedBorder": L.border,
@@ -290,7 +275,7 @@ function workbenchColors(p) {
     "breadcrumb.foreground": L.breadcrumb,
     "breadcrumb.focusForeground": L.tabActiveText,
     "breadcrumb.activeSelectionForeground": L.tabActiveText,
-    "breadcrumbPicker.background": side,
+    "breadcrumbPicker.background": L.side,
 
     // ── Editor ────────────────────────────────────────────────────────────
     "editor.background": p.bg0,
@@ -401,11 +386,11 @@ function workbenchColors(p) {
     "minimapGutter.deletedBackground": p.red,
 
     // ── Widgets (suggest, hover, find, peek) ──────────────────────────────
-    "editorWidget.background": side,
+    "editorWidget.background": L.side,
     "editorWidget.foreground": p.fg1,
     "editorWidget.border": L.border,
     "editorWidget.resizeBorder": p.bg3,
-    "editorSuggestWidget.background": side,
+    "editorSuggestWidget.background": L.side,
     "editorSuggestWidget.foreground": p.fg1,
     "editorSuggestWidget.border": L.border,
     "editorSuggestWidget.selectedBackground": L.selection,
@@ -413,11 +398,11 @@ function workbenchColors(p) {
     "editorSuggestWidget.highlightForeground": p.blue,
     "editorSuggestWidget.focusHighlightForeground": gb.bright_yellow,
     "editorSuggestWidgetStatus.foreground": p.fg4,
-    "editorHoverWidget.background": side,
+    "editorHoverWidget.background": L.side,
     "editorHoverWidget.foreground": p.fg1,
     "editorHoverWidget.border": L.border,
     "editorHoverWidget.highlightForeground": p.blue,
-    "editorHoverWidget.statusBarBackground": side,
+    "editorHoverWidget.statusBarBackground": L.side,
     "debugExceptionWidget.background": p.bg1,
     "debugExceptionWidget.border": p.red,
     "editorMarkerNavigation.background": p.bg1,
@@ -516,7 +501,7 @@ function workbenchColors(p) {
     "terminal.ansiBrightWhite": dark ? p.fg1 : gb.light4,
 
     // ── Notifications / banners ───────────────────────────────────────────
-    "notifications.background": side,
+    "notifications.background": L.side,
     "notifications.foreground": L.text,
     "notifications.border": L.border,
     "notificationCenterHeader.background": L.notificationHeader,
@@ -532,7 +517,7 @@ function workbenchColors(p) {
     "banner.iconForeground": p.blue,
 
     // ── Debug ─────────────────────────────────────────────────────────────
-    "debugToolBar.background": dark ? L.activity : side, // #333333 / #f3f3f3
+    "debugToolBar.background": dark ? L.activity : L.side, // #333333 / #f3f3f3
     "debugToolBar.border": p.bg2,
     "debugIcon.breakpointForeground": p.red,
     "debugIcon.breakpointDisabledForeground": p.gray,

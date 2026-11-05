@@ -9,20 +9,16 @@ This adds the full UI and semantic highlighting.
 
 ## Variants
 
-Dark and Light, each in Hard, Medium and Soft contrast:
+- **Groovbox Dark**
+- **Groovbox Light**
 
-- **Groovbox Dark Hard / Medium / Soft**
-- **Groovbox Light Hard / Medium / Soft**
-
-The contrast level sets the editor background, as `g:gruvbox_contrast_dark` /
-`g:gruvbox_contrast_light` do in gruvbox.vim. The panels around the editor stay
-the same within each mode.
+Both use gruvbox's default (medium) contrast.
 
 ## Screenshots
 
 ![Groovbox screenshots](images/screenshots/grid.png)
 
-Top: Dark Hard, Medium, Soft. Bottom: Light Hard, Medium, Soft.
+Groovbox Dark (left) and Groovbox Light (right).
 
 ## Install
 

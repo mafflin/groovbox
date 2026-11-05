@@ -9,15 +9,14 @@ const { tokenColors, semanticTokenColors } = require("./syntax");
 const ROOT = path.resolve(__dirname, "..");
 const OUT_DIR = path.join(ROOT, "themes");
 const MODES = ["dark", "light"];
-const CONTRASTS = ["hard", "medium", "soft"];
 
 const cap = (s) => s[0].toUpperCase() + s.slice(1);
 
-function buildTheme(mode, contrast) {
-  const p = getPalette(mode, contrast);
+function buildTheme(mode) {
+  const p = getPalette(mode);
   return {
     $schema: "vscode://schemas/color-theme",
-    name: `Groovbox ${cap(mode)} ${cap(contrast)}`,
+    name: `Groovbox ${cap(mode)}`,
     type: mode,
     semanticHighlighting: true,
     colors: workbenchColors(p),
@@ -37,21 +36,19 @@ function main() {
   );
 
   for (const mode of MODES) {
-    for (const contrast of CONTRASTS) {
-      const file = `groovbox-${mode}-${contrast}.json`;
-      const rel = path.normalize(`./themes/${file}`);
-      if (!declared.has(rel)) {
-        throw new Error(
-          `themes/${file} is not declared in package.json contributes.themes`,
-        );
-      }
-      const theme = buildTheme(mode, contrast);
-      fs.writeFileSync(
-        path.join(OUT_DIR, file),
-        JSON.stringify(theme, null, 2) + "\n",
+    const file = `groovbox-${mode}.json`;
+    const rel = path.normalize(`./themes/${file}`);
+    if (!declared.has(rel)) {
+      throw new Error(
+        `themes/${file} is not declared in package.json contributes.themes`,
       );
-      console.log(`  wrote themes/${file}`);
     }
+    const theme = buildTheme(mode);
+    fs.writeFileSync(
+      path.join(OUT_DIR, file),
+      JSON.stringify(theme, null, 2) + "\n",
+    );
+    console.log(`  wrote themes/${file}`);
   }
 }
 
