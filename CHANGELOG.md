@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+- The theme IDs match their names: **Groovbox Dark** and **Groovbox Light**
+  (formerly `Groovbox Dark Medium` and `Groovbox Light Medium`).
+- After updating, VS Code falls back to its default theme; pick Groovbox Dark
+  or Light again in *Preferences: Color Theme*.
+- If you customize the theme in `workbench.colorCustomizations` or
+  `editor.tokenColorCustomizations`, rename `"[Groovbox Dark Medium]"` to
+  `"[Groovbox Dark]"` (and `"[Groovbox Light Medium]"` to `"[Groovbox Light]"`).
+
 ## 0.2.6
 
 - Light: the sidebar, tab strip and widgets are a warmer cream (`#f2e5bc`
