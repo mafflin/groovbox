@@ -1,3 +1,6 @@
 *.vsix
 node_modules/
 .DS_Store
+# Source shots for grid.png (npm run screenshots); only the grid is committed.
+images/screenshots/dark.png
+images/screenshots/light.png
