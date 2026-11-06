@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+- Removed the deprecated `editorIndentGuide.background` and
+  `editorIndentGuide.activeBackground` colors. The indent guides look the same;
+  they use `editorIndentGuide.background1` and `activeBackground1`.
+
 ## 0.3.0
 
 - The theme IDs match their names: **Groovbox Dark** and **Groovbox Light**

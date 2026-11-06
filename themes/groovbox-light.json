@@ -192,8 +192,6 @@
     "editor.focusedStackFrameHighlightBackground": "#427b5840",
     "editorLink.activeForeground": "#076678",
     "editorWhitespace.foreground": "#3c383626",
-    "editorIndentGuide.background": "#3c383626",
-    "editorIndentGuide.activeBackground": "#3c383680",
     "editorIndentGuide.background1": "#3c383626",
     "editorIndentGuide.activeBackground1": "#3c383680",
     "editorRuler.foreground": "#ebdbb2",

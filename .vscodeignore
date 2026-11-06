@@ -2,6 +2,7 @@
 src/**
 .gitignore
 *.vsix
+dist/**
 node_modules/**
 images/icon.svg
 images/screenshots/**

@@ -308,10 +308,8 @@ function workbenchColors(p) {
     "editor.focusedStackFrameHighlightBackground": alpha(p.aqua, 0.25),
     "editorLink.activeForeground": p.blue,
     "editorWhitespace.foreground": alpha(p.fg1, 0x26 / 255), // Sublime invisibles
-    "editorIndentGuide.background": alpha(p.fg1, 0x26 / 255), // Sublime guide
-    "editorIndentGuide.activeBackground": alpha(p.fg1, 0x80 / 255), // Sublime activeGuide
-    "editorIndentGuide.background1": alpha(p.fg1, 0x26 / 255),
-    "editorIndentGuide.activeBackground1": alpha(p.fg1, 0x80 / 255),
+    "editorIndentGuide.background1": alpha(p.fg1, 0x26 / 255), // Sublime guide
+    "editorIndentGuide.activeBackground1": alpha(p.fg1, 0x80 / 255), // Sublime activeGuide
     "editorRuler.foreground": p.bg1, // ColorColumn
     "editorCodeLens.foreground": p.gray,
     "editorInlayHint.foreground": p.gray,

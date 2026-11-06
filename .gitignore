@@ -1,4 +1,5 @@
 *.vsix
+dist/
 node_modules/
 .DS_Store
 # Source shots for grid.png (npm run screenshots); only the grid is committed.

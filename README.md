@@ -17,21 +17,6 @@ Both use gruvbox's default (medium) contrast.
 
 Groovbox Dark (left) and Groovbox Light (right).
 
-## Install
-
-```sh
-code --install-extension groovbox-<version>.vsix    # VSCodium: codium …
-```
-
-Then pick a **Groovbox** theme in *Preferences: Color Theme*.
-
-## Build
-
-```sh
-npm run build      # regenerate themes/ from src/
-npm run package    # create the .vsix
-```
-
 ## License
 
 MIT. See `LICENSE`.
