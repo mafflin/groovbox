@@ -397,7 +397,7 @@
     "debugIcon.stepBackForeground": "#83a598",
     "debugTokenExpression.name": "#83a598",
     "debugTokenExpression.value": "#d5c4a1",
-    "debugTokenExpression.string": "#fbf1c7",
+    "debugTokenExpression.string": "#ebdbb2",
     "debugTokenExpression.boolean": "#d3869b",
     "debugTokenExpression.number": "#d3869b",
     "debugTokenExpression.error": "#fb4934",
@@ -433,7 +433,7 @@
     "symbolIcon.propertyForeground": "#83a598",
     "symbolIcon.referenceForeground": "#83a598",
     "symbolIcon.snippetForeground": "#d5c4a1",
-    "symbolIcon.stringForeground": "#fbf1c7",
+    "symbolIcon.stringForeground": "#ebdbb2",
     "symbolIcon.structForeground": "#fabd2f",
     "symbolIcon.textForeground": "#d5c4a1",
     "symbolIcon.typeParameterForeground": "#fabd2f",
@@ -753,7 +753,7 @@
         "variable.parameter.url"
       ],
       "settings": {
-        "foreground": "#fbf1c7"
+        "foreground": "#ebdbb2"
       }
     },
     {
@@ -832,7 +832,7 @@
         "string"
       ],
       "settings": {
-        "foreground": "#fbf1c7"
+        "foreground": "#ebdbb2"
       }
     },
     {
@@ -856,7 +856,7 @@
         "string.regexp"
       ],
       "settings": {
-        "foreground": "#fbf1c7"
+        "foreground": "#ebdbb2"
       }
     },
     {

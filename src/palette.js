@@ -92,8 +92,9 @@ function getPalette(mode) {
   // Function and method names, calls and declarations alike.
   p.func = p.green;
 
-  // Strings: the main text color, so green is left to functions.
-  p.string = p.text;
+  // Strings: a step dimmer than the main text color, so green is left to
+  // functions and strings still stand apart from plain code.
+  p.string = p.fg1;
 
   // Neutral accents are shared by both backgrounds (terminal, rainbow brackets).
   p.neutral = {};

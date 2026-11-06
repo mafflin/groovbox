@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.5
+
+- Strings are a step dimmer than the main text color (dark `#ebdbb2`, light
+  `#3c3836` instead of `#fbf1c7` and `#282828`), so they stand apart from
+  plain code.
+
 ## 0.2.4
 
 - Function and method calls are green instead of aqua, the same as
