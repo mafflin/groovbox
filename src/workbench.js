@@ -40,8 +40,8 @@ const LAYOUT = {
     inactiveSelection: DARK.band, //     inactive select.  #37373d
     selection: gb.faded_blue, //         focused selection #04395e
     selectionText: gb.light0, //                           #ffffff
-    accent: gb.faded_blue, //            button / status   #0e639c / #007acc
-    accentHover: gb.neutral_blue, //     button hover      #1177bb
+    accent: gb.neutral_blue, //          button / status   #0e639c / #007acc (faded_blue read too bright)
+    accentHover: gb.faded_blue, //       button hover      #1177bb
     accentText: gb.light0, //                              #ffffff
     secondaryButton: gb.dark1, //        secondary button  #3a3d41
     focus: gb.neutral_blue, //           focusBorder       #007fd4 (#076678 is invisible on dark)
@@ -74,8 +74,8 @@ const LAYOUT = {
     inactiveSelection: gb.light0_soft, // inactive select. #e4e6f1
     selection: gb.faded_blue, //         focused selection #0060c0
     selectionText: gb.light0_hard, //                      #ffffff
-    accent: gb.faded_blue, //            button / status   #007acc
-    accentHover: gb.neutral_blue, //     button hover      #0062a3
+    accent: gb.neutral_blue, //          button / status   #007acc (faded_blue read too bright)
+    accentHover: gb.faded_blue, //       button hover      #0062a3
     accentText: gb.light0_hard, //                         #ffffff
     secondaryButton: gb.dark3, //        secondary button  #5f6a79
     focus: gb.neutral_blue, //           focusBorder       #0090f1

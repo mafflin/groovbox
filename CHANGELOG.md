@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.6
+
+- Light: the sidebar, tab strip and widgets are a warmer cream (`#f2e5bc`
+  instead of `#f9f5d7`).
+- Light: the activity bar is light (`#ebdbb2`, like the title bar) with dark
+  icons, instead of dark (`#282828`).
+- The status bar, badges and primary buttons use a softer blue (`#458588`
+  instead of `#076678`). Buttons turn the darker blue on hover. Selected items
+  in lists, Quick Open, menus and suggestions keep `#076678`.
+
 ## 0.2.5
 
 - Strings are a step dimmer than the main text color (dark `#ebdbb2`, light
