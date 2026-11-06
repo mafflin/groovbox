@@ -57,10 +57,10 @@ const LAYOUT = {
   light: {
     title: gb.light1, //                 titleBar          #dddddd
     titleText: gb.dark0_soft, //         titleBar text     #333333
-    activity: gb.dark0, //               activityBar       #2c2c2c (dark, as in VS Code's Light)
-    activityIcon: gb.light0, //          icons             #ffffff
-    activityIconInactive: gb.gray_245, // inactive icons   #ffffff66 over #2c2c2c
-    side: gb.light0_hard, //             sideBar, tab strip, widgets  #f3f3f3
+    activity: gb.light1, //              activityBar: a step darker than the sideBar, like the titleBar
+    activityIcon: gb.dark0_soft, //      icons             #1f1f1f
+    activityIconInactive: gb.dark4, //   inactive icons    #616161 (gray_244 is below 3:1)
+    side: gb.light0_soft, //             sideBar, tab strip, widgets  #f3f3f3
     sectionHeader: gb.light1, //         section header    #80808033 over #f3f3f3
     tabInactive: gb.light0_soft, //      inactive tab      #ececec (light0 would equal the editor)
     tabActiveText: gb.dark0_soft, //     active tab text   #333333
